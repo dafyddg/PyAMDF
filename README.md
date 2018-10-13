@@ -8,36 +8,59 @@ The methods of estimating speech F0 fall into two main types, which can also be 
 The PyAMDF method is a time-domain method, and uses the Average Magnitude Difference Function, which checks the similarity or difference between magnitudes (the absolute amplitude) of intervals with the average magnitude patterns  magnitude patterns in intervals in the waveform with magnitudes of the following intervals. The difference between the beginning of the first interval and the next most similar interval is the inverse of the fundamental frequency.
 
 The code is mainly in traditional functional style, so that those familiar with other programming languages should not have too much difficulty in following it. The structure is:
+
 	- Import of supporting library modules
+	
 	- Definition of parameters
+	
 	- Inport of a wavefile and calculation of relevant dependent parameters
+	
 	- Preprocessing of the signal by centre-clipping
+	
 	- F0 estimation by AMDF
+	
 	- Postprocessing of the signal by
+	
 		- Truncating F0 estimates outside a defined voice range
+		
 		- Smoothing the F0 pattern
+		
 	- Display of the waveform, a spectrogram and the F0 estimation
 
 The PyAMDF implementation does not include common features of well-known standard F0 estimators such as Praat, RAPT (aka 'get_f0' or 'esps'), Reaper, SWIPE, YAAPT or YIN (descriptions of these can be found on the internet):
+
 	- separate voicing detection
+	
 	- statistical estimation of parameter costs
+	
 	- octave and suboctave detection
+	
 	- continuity detection
+	
 Consequently, PyAMDF is not as robust or versatile as the F0 estimators named above, but is neverthess useful with careful selection of parameter values.
 
 The implementation is standalone code, intended for use on the command line interface (CLI). It was developed and tested with Ubuntu Linux 16.10, but is intended to be platform-independent, but requires installation of the standard Python library modules NumPy, MatPlotLib and SciPy.
 
 Typical CLI usage of PyAMDFis:
+
 	PyAMDF.py somebodysvoice.wav fairlyhigh single
+
 CLI parameter shortcuts for different voice type parameters are provided:
+
 	'high', 'fairlyhigh', 'mid', 'fairlylow', 'low'
+
 Other parameters are 'hard-wired' in the code, and can be changed as desired.
 
 Three outputs are provided:
+
 	- a screen figure display of waveform, spectrogram and F0 estimation,
+	
 	- a PNG file with the figure,
+	
 	- a CSV file of the CSV estimation for input into a spreadsheet.
 
 The code is open source free software. The only condition on using this code is that it may not be patented or copyrighted. If the code is used in publications it may be cited as:
 
-Gibbon, Dafydd. 2018. PyAMDF: a do-it-yourself pitch estimator in Python. Bielefeld University. https://github.com/dafyddg/PyAMDF/
+Gibbon, Dafydd. 2018. PyAMDF: a do-it-yourself pitch estimator in Python. Bielefeld University.
+
+https://github.com/dafyddg/PyAMDF/
