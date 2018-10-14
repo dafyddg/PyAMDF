@@ -61,7 +61,7 @@ import scipy.io.wavfile as wav
 import matplotlib.pyplot as plt
 
 #==============================================================================
-# Parameters
+# Parameters - will definitely need tweaking
 
 try:
 	filename = sys.argv[1]
@@ -78,7 +78,7 @@ try:
 	else:
 		singlefigure = False
 		
-	framerate = 0.01
+	framerate = 0.01	# Low pitched voices may need 0.02 s
 	
 	centreclip = 10
 	winoffsetdivisor = 20.0
@@ -105,10 +105,12 @@ try:
 	elif voice == 'fairlylow':
 		f0min = 100
 		f0max = 300
+		framerate = 0.02
 
 	elif voice == 'low':
 		f0min = 50
 		f0max = 250
+		framerate = 0.02
 
 	else:
 		print 'Unknown voice type.'; exit()
