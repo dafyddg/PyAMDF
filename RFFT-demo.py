@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # RFFT-demo.py
+# D. Gibbon, 2018-10-24
 
 import sys
 import numpy as np
