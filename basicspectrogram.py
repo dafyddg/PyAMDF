@@ -16,6 +16,7 @@ try:
 	sampfreq,signal = wave.read(sys.argv[1])
 	plt.specgram(signal, NFFT=1000, Fs=sampfreq)
 	plt.ylim(0,8000)
+	plt.savefig('basicspectrogram.png')
 	plt.show()
 except:
 	print "Usage: spectrogram yourwavefile.wav (must be mono)"
